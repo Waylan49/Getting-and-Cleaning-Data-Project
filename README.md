@@ -70,7 +70,7 @@ Combined_Data<-rbind(Train_Data, Test_Data)
 We only need measurements on the mean and standard deviation for each measurement.
 
 ```{r, fig.height=5, fig.width=5}
-xtract_Data<-select(Combined_Data, Subject_ID, Activity_ID, contains("mean()"), contains("std()"))
+Extract_Data<-select(Combined_Data, Subject_ID, Activity_ID, contains("mean()"), contains("std()"))
 ```
 
 
@@ -81,7 +81,7 @@ Appropriately labels the data set with descriptive variable names.
 
 ```{r, fig.height=5, fig.width=5}
 Extract_Data$Activity_ID<-factor(Extract_Data$Activity_ID, labels=activity_labels$Activity_Desc.)
-write_xlsx(Extract_Data, "Combined_Tidy_Data.xlsx")
+write.table(Extract_Data, "Combined_Tidy_Data.txt")
 ```
 
 
@@ -90,5 +90,5 @@ From the data set in step 4, creates a second, independent tidy data set with th
 
 ```{r, fig.height=5, fig.width=5}
 Summarized_Data<-Extract_Data %>% group_by(Subject_ID, Activity_ID) %>% summarise_if(is.numeric, funs(mean))
-write_xlsx(Summarized_Data, "Summarized_Tidy_Data.xlsx")
+write.table(Summarized_Data, "Summarized_Tidy_Data.txt")
 ```

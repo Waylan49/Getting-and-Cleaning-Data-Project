@@ -1,7 +1,6 @@
-library(writexl)
 library(dplyr)
 
-setwd("C:/Users/Weilun_Chiu/Desktop/Getting_and_Cleaning_Data_Project")
+setwd("C:/Users/Waylan/Desktop/Getting_and_Cleaning_Data_Project")
 
 
 url<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -52,10 +51,10 @@ Extract_Data<-select(Combined_Data, Subject_ID, Activity_ID, contains("mean()"),
 
 ##Part 3 & 4: Name the activities
 Extract_Data$Activity_ID<-factor(Extract_Data$Activity_ID, labels=activity_labels$Activity_Desc.)
-write_xlsx(Extract_Data, "Combined_Tidy_Data.xlsx")
+write.table(Extract_Data, "Combined_Tidy_Data.txt")
 
 
 ##Part 5: Summarize the data
 
 Summarized_Data<-Extract_Data %>% group_by(Subject_ID, Activity_ID) %>% summarise_if(is.numeric, funs(mean))
-write_xlsx(Summarized_Data, "Summarized_Tidy_Data.xlsx")
+write.table(Summarized_Data, "Summarized_Tidy_Data.txt")

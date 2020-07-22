@@ -42,10 +42,10 @@ R-Code
 Summarized_Data<-Extract_Data %>% group_by(Subject_ID, Activity_ID) %>% summarise_if(is.numeric, funs(mean))
 
 ##Part 4: Export two tidy data sets we accomplish during the cleaning process
-We use function write_xlsx() from package "writexl" to export the tidy data sets we achieve during this process to our work directory. 
+We use function write.table to export the tidy data sets we achieve during this process to our work directory as txt file. 
 
-write_xlsx(Extract_Data, "Combined_Tidy_Data.xlsx")
-write_xlsx(Summarized_Data, "Summarized_Tidy_Data.xlsx")
+write.table(Extract_Data, "Combined_Tidy_Data.txt")
+write.table(Summarized_Data, "Summarized_Tidy_Data.txt")
 
 
 
