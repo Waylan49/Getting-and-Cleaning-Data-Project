@@ -1,0 +1,24 @@
+---
+title: "Gettign and Cleaning Data Project-README"
+author: "Weilun Chiu"
+date: "7/21/2020"
+output: html_document
+---
+
+##Project Idea
+This project aims to demonstrate the process how to get the data and conduct the cleaning process in order to achieve a tidy data set with several conditions. 
+
+Below address is the full description of the data we are going to process
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+We derive the data from below URL, the way to download and import the data are described in the r script. 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+##Required info
+In this project, we will utilize the knowledge learned from class "Getting and Cleaning Data", the most frequently used functions are from package "dplyr". 
+
+##Files in this repository
+codebook: Document explains all the variables we have in our r script, and also includes the transformation we conduct in order to achieve the tidy data set and the final summaeized data set. 
+
+run_analysis.r: This is the r script we can operate on RStudio to accomplish all the work to achieve the final result. 
+
