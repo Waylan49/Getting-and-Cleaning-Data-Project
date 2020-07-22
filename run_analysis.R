@@ -51,10 +51,10 @@ Extract_Data<-select(Combined_Data, Subject_ID, Activity_ID, contains("mean()"),
 
 ##Part 3 & 4: Name the activities
 Extract_Data$Activity_ID<-factor(Extract_Data$Activity_ID, labels=activity_labels$Activity_Desc.)
-write.table(Extract_Data, "Combined_Tidy_Data.txt")
+write.table(Extract_Data, "Combined_Tidy_Data.txt", row.names = FALSE)
 
 
 ##Part 5: Summarize the data
 
 Summarized_Data<-Extract_Data %>% group_by(Subject_ID, Activity_ID) %>% summarise_if(is.numeric, funs(mean))
-write.table(Summarized_Data, "Summarized_Tidy_Data.txt")
+write.table(Summarized_Data, "Summarized_Tidy_Data.txt", row.names = FALSE)
